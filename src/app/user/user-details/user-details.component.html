@@ -1,0 +1,46 @@
+<app-menu></app-menu>
+<div class="wrapper">
+    <div class="pageTitleContainer"><h2>User Details</h2></div>
+    <div class="newContainer">
+        <div class="back"><a routerLink="/users/listusers">Go back to users list</a></div>
+        <div class="infoTableContainer">
+            <table class="table table-sm">
+                <tbody>
+                    <tr>
+                        <td>ID</td>
+                        <td>{{user.id}}</td>
+                    </tr>
+                    <tr>
+                        <td>First Name</td>
+                        <td>{{user.firstname}}</td>
+                    </tr>
+                    <tr>
+                        <td>Last Name</td>
+                        <td>{{user.lastname}}</td>
+                    </tr>
+                    <tr>
+                        <td>Phone Number</td>
+                        <td>{{user.phone}}</td>
+                    </tr>
+                    <tr>
+                        <td>Email</td>
+                        <td>{{user.email}}</td>
+                    </tr>
+                    <tr>
+                        <td>Username</td>
+                        <td>{{user.username}}</td>
+                    </tr>
+                    <tr>
+                        <td>Reviewer?</td>
+                        <td>{{user.isReviewer? 'YES': 'NO'}}</td>
+                    </tr>
+                    <tr>
+                        <td>Admin?</td>
+                        <td>{{user.isAdmin? 'YES' : 'NO'}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="saveBtnContainer"><button class="button btn-primary" (click)="deleteUser()">Delete User</button></div>
+</div>

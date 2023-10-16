@@ -1,1 +1,1 @@
-<p>menu works!</p>
+<div><nav class="nav"><ul><li *ngFor="let menu of menus"><a routerLink="{{menu.route}}">{{menu.display}}</a></li></ul></nav> <span *ngIf="user">{{user.username}}</span></div>

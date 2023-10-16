@@ -1,0 +1,33 @@
+<app-menu></app-menu>
+<div class="wrapper">
+    <div class="headerContainer">
+
+    </div>
+        <div class="listAllContainer">
+            <div class="listTableActions">
+                <a routerLink="/vendors/new">Add new Vendor</a>
+            </div>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th><button (click)="sortCol('id')">ID</button></th>
+                        <th><button (click)="sortCol('code')">CODE</button></th>
+                        <th><button (click)="sortCol('name')">NAME</button></th>
+                        <th><button (click)="sortCol('phone')">PHONE</button></th>
+                        <th><button (click)="sortCol('email')">EMAIL</button></th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let vendor of vendors | sort:sortedCol:sortAsc">
+                        <td>{{vendor.id}}</td>
+                        <td>{{vendor.code}}</td>
+                        <td>{{vendor.name}}</td>
+                        <td>{{vendor.phone}}</td>
+                        <td>{{vendor.email}}</td>
+                        <td><a routerLink="/vendors/{{vendor.id}}">Details</a> | <a routerLink="/vendors/edit/id">Edit</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+</div>

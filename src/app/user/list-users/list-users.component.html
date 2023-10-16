@@ -1,0 +1,53 @@
+<app-menu></app-menu>
+<div class="wrapper">
+    <div class="headerContainer"><h2>List All users</h2></div>
+    <div class="listAllContainer">
+        <div class="listTableActions"><a routerLink="/users/new">Create new user</a></div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th><button (click)="sortCol('id')">Id</button></th>
+                    <th><button (click)="sortCol('firstname')">First Name</button></th>
+                    <th><button (click)="sortCol('lastname')">Last Name</button></th>
+                    <th><button (click)="sortCol('phone')">Phone</button></th>
+                    <th><button (click)="sortCol('email')">Email</button></th>
+                    <th><button (click)="sortCol('username')">Username</button></th>
+                    <th><button (click)="sortCol('isReviewer')">Reviewer?</button></th>
+                    <th><button (click)="sortCol('isAdmin')">Admin?</button></th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of users | sort:sortedCol:sortAsc">
+                    <td>
+                        {{user.id}}
+                    </td>
+                    <td>
+                        {{user.firstname}}
+                    </td>
+                    <td>
+                        {{user.lastname}}
+                    </td>
+                    <td>
+                        {{user.phone}}
+                    </td>
+                    <td>
+                        {{user.email}}
+                    </td>
+                    <td>
+                        {{user.username}}
+                    </td>
+                    <td>
+                        {{user.isReviewer? 'YES': 'NO'}}
+                    </td>
+                    <td>
+                        {{user.isAdmin? 'YES' : 'NO'}}
+                    </td>
+                    <td>
+                        <a routerLink="/users/{{user.id}}">Detail</a> | <a routerLink="/users/edit/{{user.id}}">Edit</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+.nav {
+   display: inline-block; 
+}
+div {
+    background-color: darkblue;
+}
+li {
+    display:inline;
+}
+a {
+    color:white;
+    padding: 0px 5px;
+    text-decoration: none;
+}
+a:hover{
+    color:darkgray;
+    font-weight: bold;
+}
+span{
+    color:white;
+    margin-left: 70%;
+    margin-bottom: 0;
+}
