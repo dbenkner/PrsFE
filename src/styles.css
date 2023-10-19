@@ -22,3 +22,8 @@ body {
     margin:auto;
     text-align: center;
 }
+.sortBtn{
+    border-style: none;
+    background: none;
+    font-weight: bold;
+}

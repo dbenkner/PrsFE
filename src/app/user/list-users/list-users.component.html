@@ -3,17 +3,17 @@
     <div class="headerContainer"><h2>List All users</h2></div>
     <div class="listAllContainer">
         <div class="listTableActions"><a routerLink="/users/new">Create new user</a></div>
-        <table class="table table-striped">
+        <table  class="table table-striped">
             <thead>
                 <tr>
-                    <th><button (click)="sortCol('id')">Id</button></th>
-                    <th><button (click)="sortCol('firstname')">First Name</button></th>
-                    <th><button (click)="sortCol('lastname')">Last Name</button></th>
-                    <th><button (click)="sortCol('phone')">Phone</button></th>
-                    <th><button (click)="sortCol('email')">Email</button></th>
-                    <th><button (click)="sortCol('username')">Username</button></th>
-                    <th><button (click)="sortCol('isReviewer')">Reviewer?</button></th>
-                    <th><button (click)="sortCol('isAdmin')">Admin?</button></th>
+                    <th><button class="sortBtn" (click)="sortCol('id')">Id</button></th>
+                    <th><button class="sortBtn" (click)="sortCol('firstname')">First Name</button></th>
+                    <th><button class="sortBtn" (click)="sortCol('lastname')">Last Name</button></th>
+                    <th><button class="sortBtn" (click)="sortCol('phone')">Phone</button></th>
+                    <th><button class="sortBtn" (click)="sortCol('email')">Email</button></th>
+                    <th><button class="sortBtn" (click)="sortCol('username')">Username</button></th>
+                    <th><button class="sortBtn" (click)="sortCol('isReviewer')">Reviewer?</button></th>
+                    <th><button class="sortBtn" (click)="sortCol('isAdmin')">Admin?</button></th>
                     <th>Action</th>
                 </tr>
             </thead>

@@ -1,0 +1,39 @@
+<app-menu></app-menu>
+<div class="wrapper">
+    <div class="headerContainer"><h2>Add a Request</h2></div>
+    <div class="newContainer">
+        <div class="infoTableContainer">
+            <table>
+                <tr>
+                    <td>ID</td>
+                    <td><input [(ngModel)]="request.id" readonly></td>
+                </tr>
+                <tr>
+                    <td>Description</td>
+                    <td><input [(ngModel)]="request.description"></td>
+                </tr>
+                <tr>
+                    <td>Justifcation</td>
+                    <td><input [(ngModel)]="request.justifcation"></td>
+                </tr>
+                <tr>
+                    <td>Delivery Mode</td>
+                    <td><input [(ngModel)]="request.deliveryMode"></td>
+                </tr>
+                <tr>
+                    <td>Status</td>
+                    <td><input [(ngModel)]="request.status" readonly></td>
+                </tr>
+                <tr>
+                    <td>Total</td>
+                    <td><input [(ngModel)]="request.total" readonly></td>
+                </tr>
+                <tr>
+                    <td>User</td>
+                    <td><input [(ngModel)]="user.username" readonly></td>
+                </tr>
+            </table>
+        </div>
+        <div class="btnContainer"><button class="btn btn-primary" (click)="save()">Save</button></div>
+    </div>
+</div>

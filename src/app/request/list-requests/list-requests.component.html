@@ -1,0 +1,35 @@
+<app-menu></app-menu>
+<div class="wrapper">
+    <div class="headerContainer"><h2>Requests List</h2></div>
+    <div class="listAllContainer">
+        <div class="listTableActions"><a routerLink="/requests/new">Create a new request</a></div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th><button class="sortBtn" (click)="sorted('id')">ID</button></th>
+                    <th><button class="sortBtn" (click)="sorted('description')">Description</button></th>
+
+                    <th><button class="sortBtn" (click)="sorted('rejectionReason')">Rejection Reason</button></th>
+
+                    <th><button class="sortBtn" (click)="sorted('status')">Status</button></th>
+
+                    <th><button class="sortBtn" (click)="sorted('total')">Total</button></th>
+                    <th><button class="sortBtn" (click)="sorted('user')">Username</button></th>
+
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let request of requests | sort:sortCol:sortAsc">
+                    <td>{{request.id}}</td>
+                    <td>{{request.description}}</td>
+                    <td>{{request.rejectionReason}}</td>
+                    <td>{{request.status}}</td>
+                    <td>{{request.total |currency}}</td>
+                    <td>{{request.user.username}}</td>
+                    <td><a routerLink="/requests/{{request.id}}">Detail</a> | <a routerLink="/requests/edit/{{request.id}}">Edit</a> | <a routerLink="/requests/requestline/{{request.id}}">Lines</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

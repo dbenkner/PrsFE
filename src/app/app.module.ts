@@ -18,7 +18,20 @@ import { LoginComponent } from './user/login/login.component';
 import { ListVendorsComponent } from './vendor/list-vendors/list-vendors.component';
 import { CreateVendorComponent } from './vendor/create-vendor/create-vendor.component';
 import { EditVendorComponent } from './vendor/edit-vendor/edit-vendor.component';
-import { DetailVendorComponent } from './vendor/detail-vendor/detail-vendor.component'
+import { DetailVendorComponent } from './vendor/detail-vendor/detail-vendor.component';
+import { ListProductsComponent } from './product/list-products/list-products.component';
+import { EditProductComponent } from './product/edit-product/edit-product.component';
+import { ProductDetailComponent } from './product/product-detail/product-detail.component';
+import { NewProductComponent } from './product/new-product/new-product.component';
+import { ListRequestsComponent } from './request/list-requests/list-requests.component';
+import { EditRequestComponent } from './request/edit-request/edit-request.component';
+import { NewRequestComponent } from './request/new-request/new-request.component';
+import { DetailRequestComponent } from './request/detail-request/detail-request.component';
+import { RequestlineComponent } from './request/requestline/requestline.component';
+import { NewRequestlineComponent } from './requestline/new-requestline/new-requestline.component';
+import { EditRequestlineComponent } from './requestline/edit-requestline/edit-requestline.component';
+import { ListReviewComponent } from './request/list-review/list-review.component';
+
 
 @NgModule({
   declarations: [
@@ -36,7 +49,19 @@ import { DetailVendorComponent } from './vendor/detail-vendor/detail-vendor.comp
     ListVendorsComponent,
     CreateVendorComponent,
     EditVendorComponent,
-    DetailVendorComponent
+    DetailVendorComponent,
+    ListProductsComponent,
+    EditProductComponent,
+    ProductDetailComponent,
+    NewProductComponent,
+    ListRequestsComponent,
+    EditRequestComponent,
+    NewRequestComponent,
+    DetailRequestComponent,
+    RequestlineComponent,
+    NewRequestlineComponent,
+    EditRequestlineComponent,
+    ListReviewComponent,
   ],
   imports: [
     BrowserModule,

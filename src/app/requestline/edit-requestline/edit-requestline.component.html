@@ -1,0 +1,26 @@
+<app-menu></app-menu>
+
+<div class="wrapper">
+    <div class="headerContainer"><h2>Add a new line item</h2></div>
+    <div class="newContainer">
+        <div class="infoTableContainer">
+            <table class="table table-sm">
+                <tbody>
+                    <tr>
+                        <td>ID</td>
+                        <td><input [(ngModel)]="rl.id" readonly></td>
+                    </tr>
+                    <tr>
+                        <td>Product</td>
+                        <td><select [(ngModel)]="rl.productId"><option *ngFor="let product of products" value={{product.id}}>{{product.name}}</option></select></td>
+                    </tr>
+                    <tr>
+                        <td>Quantity</td>
+                        <td><input [(ngModel)]="rl.quantity" type="number"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="btnContainer"><button (click)="save()">Save</button></div>
+    </div>
+</div>

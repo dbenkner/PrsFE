@@ -1,0 +1,56 @@
+<app-menu></app-menu>
+<div class="wrapper">
+    <div class="headerContainer"><h2>Requestline</h2></div>
+    <div class="listAllContainer">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Description</th>
+                    <th>Rejection Reason</th>
+                    <th>Status</th>
+                    <th>Total</th>
+                    <th>Username</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{request.id}}</td>
+                    <td>{{request.description}}</td>
+                    <td>{{request.rejectionReason}}</td>
+                    <td>{{request.status}}</td>
+                    <td>{{request.total | currency}}</td>
+                    <td>{{request.user.username}}</td>
+                    <td><button (click)="submit()">Submit for review</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="headerContainer"><h3>Requestline details</h3></div>
+    <div class="listAllContainer">
+        <div class="listTableActions"><a routerLink="/requestline/new/{{request.id}}">Add a Line Item</a></div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Line Total</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let line of request.requestLines">
+                    <td>{{line.id}}</td>
+                    <td>{{line.product.name}}</td>
+                    <td>{{line.product.price |currency}}</td>
+                    <td>{{line.quantity}}</td>
+                    <td>{{line.quantity * line.product.price | currency}}</td>
+                    <td><button routerLink="/requestline/edit/{{line.id}}">Edit</button> | <button (click)="verDel()">Delete</button><span *ngIf="verBtn"> | <button (click)="remove(line.id)">Verify</button></span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

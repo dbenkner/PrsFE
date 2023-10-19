@@ -1,0 +1,39 @@
+<app-menu></app-menu>
+<div class="wraper">
+    <div class="headerContainer"><h2>Edit Product</h2></div>
+    <div class="newContainer">
+        <a routerLink="/products/list">Back to products list</a>
+        <div class="infoTableContainer">
+            <table class="table table-sm">
+                <tbody>
+                    <tr>
+                        <td>ID</td>
+                        <td><input [(ngModel)]="product.id" readonly></td>
+                    </tr>
+                    <tr>
+                        <td>Part Number</td>
+                        <td><input [(ngModel)]="product.partNbr"></td>
+                    </tr>
+                    <tr>
+                        <td>Name</td>
+                        <td><input [(ngModel)]="product.name"></td>
+                    </tr>
+                    <tr>
+                        <td>Price</td>
+                        <td><input [(ngModel)]="product.price" type="number"></td>
+                    </tr>
+                    <tr>
+                        <td>Unit</td>
+                        <td><input [(ngModel)]="product.unit"></td>
+                    </tr>
+                    <tr>
+                        <td>Vendor</td>
+                        <td><select [(ngModel)]="product.vendorId"><option *ngFor="let vendor of vendors" value="{{vendor.id}}">{{vendor.name}}</option></select></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div btnContainer><button class="btn btn-primary" (click)="save()">Save</button></div>
+    </div>
+    <div class="messageContainer">{{message}}</div>
+</div>

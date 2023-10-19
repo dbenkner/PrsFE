@@ -1,0 +1,43 @@
+<app-menu></app-menu>
+<div class="wrapper">
+    <div class="headerContainer">
+        <H2>Products List</H2>
+    </div>
+    <div class="listAllContainer">
+        <div class="listTableActions"><a routerLink="/products/new">Add a new product</a></div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>
+                        <button class="sortBtn" (click)="sorted('id')">ID</button>
+                    </th>
+                    <th>
+                        <button class="sortBtn" (click)="sorted('name')">Name</button>
+                    </th>
+                    <th>
+                        <button class="sortBtn" (click)="sorted('partNbr')">Part Number</button>
+                    </th>
+                    <th>
+                        <button class="sortBtn" (click)="sorted('price')">Price</button>
+                    </th>
+                    <th>
+                        <button class="sortBtn" (click)="sorted('name')">Vendor</button>
+                    </th>
+                    <th>
+                        Action
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let product of products | sort:sortCol:sortAsc">
+                    <td>{{product.id}}</td>
+                    <td>{{product.name}}</td>
+                    <td>{{product.partNbr}}</td>
+                    <td>{{product.price |currency}}</td>
+                    <td>{{product.vendor.name}}</td>
+                    <td><a routerLink="/products/{{product.id}}">Details</a> | <a routerLink="/products/edit/{{product.id}}">Edit</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

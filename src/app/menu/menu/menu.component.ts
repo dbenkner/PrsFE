@@ -13,7 +13,10 @@ export class MenuComponent {
     new Menu ('HOME', '/home'),
     new Menu ('ABOUT', '/about'),
     new Menu('USERS', '/users/listusers'),
-    new Menu('VENDORS', '/vendors/list')
+    new Menu('VENDORS', '/vendors/list'),
+    new Menu('PRODUCTS', '/products/list'),
+    new Menu('REQUESTS', '/requests/list'),
+    new Menu('REVIEW', '/review/list')
   ];
   user!: User;
   constructor(

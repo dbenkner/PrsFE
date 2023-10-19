@@ -1,0 +1,46 @@
+<app-menu></app-menu>
+<div class="wrapper">
+    <div class="headerContainer"><h2>Needs Review</h2></div>
+    <div class="listAllContainer">
+        <div class="listTableActions">
+            <table class="table table-stripped">
+                <thead>
+                    <tr>
+                        <th>
+                            <button (click)="sorted('id')" class="sortBtn">ID</button>
+                        </th>
+                        <th>
+                            <button (click)="sorted('description')" class="sortBtn">Description</button>
+                        </th>
+                        <th>
+                            <button (click)="sorted('justifcation')" class="sortBtn">justifcation</button>
+                        </th>
+                        <th>
+                            <button (click)="sorted('status')" class="sortBtn">Status</button>
+                        </th>
+                        <th>
+                            <button (click)="sorted('total')" class="sortBtn">Total</button>
+                        </th>
+                        <th>
+                            <button (click)="sorted('user.username')" class="sortBtn">User</button>
+                        </th>
+                        <th>
+                            Action
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let request of requests">
+                        <td>{{request.id}}</td>
+                        <td>{{request.description}}</td>
+                        <td>{{request.justifcation}}</td>
+                        <td>{{request.status}}</td>
+                        <td>{{request.total}}</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
