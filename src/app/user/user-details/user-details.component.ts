@@ -12,6 +12,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class UserDetailsComponent {
   user!: User;
   message: string ="";
+  verBtn = false;
 
   constructor(
     private userSvc: UserService,
@@ -31,6 +32,11 @@ export class UserDetailsComponent {
         this.message= "Sorry something went wrong";
       }
     });
+  }
+  verifyBtn():void{
+    if (this.verBtn === false) {
+      this.verBtn = true;
+    }
   }
   deleteUser():void {
     this.userSvc.remove(this.user.id).subscribe({

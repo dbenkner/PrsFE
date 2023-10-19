@@ -25,6 +25,7 @@ export class EditUserComponent {
     this.userSvc.getById(id).subscribe({
       next:(res) => {
         console.debug(res);
+        this.user = res;
       },
       error:(err) => {
         console.error(err);

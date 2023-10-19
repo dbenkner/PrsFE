@@ -8,7 +8,7 @@
                 <tbody>
                     <tr>
                         <td>ID</td>
-                        <td><input [(ngModel)]="user.id"></td>
+                        <td><input [(ngModel)]="user.id" readonly></td>
                     </tr>
                     <tr>
                         <td>First Name</td>
@@ -45,6 +45,6 @@
                 </tbody>
             </table>
         </div>
+        <div class="saveBtnContainer"><button class="btn btn-primary" (click)="saveUser()">Save</button></div>
     </div>
-    <div class="saveBtnContainer"><button class="button btn-primary" (click)="saveUser()">Save</button></div>
 </div>

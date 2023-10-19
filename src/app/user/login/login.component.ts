@@ -24,7 +24,7 @@ export class LoginComponent {
         this.sysService.loggedInUser = res;
         this.router.navigate(['requests/list']);
       }, error: (err) => {
-        if (err.status = 404) {
+        if (err.status === 404) {
           this.message = "Invalid Username or Password"
         } else {
           this.message = "Something went wrong"

@@ -41,6 +41,7 @@
                 </tbody>
             </table>
         </div>
+        <div class="saveBtnContainer"><button class="btn btn-primary" (click)="verifyBtn()">Delete User</button>
+            <span class="verifyBtn" ><button *ngIf="verBtn" class="btn btn-primary" (click)="deleteUser()">Verify</button></span></div>
     </div>
-    <div class="saveBtnContainer"><button class="button btn-primary" (click)="deleteUser()">Delete User</button></div>
 </div>

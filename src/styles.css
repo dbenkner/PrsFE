@@ -2,3 +2,23 @@
 body {
     padding:0
 }
+.newContainer{
+    margin:auto;
+    width: 400px;
+    border:solid;
+    border-radius: 10px;
+}
+.infoTableContainer{
+    margin:10px;
+}
+.wrapper{
+    display:inline-block;
+    width:100%;
+}
+.headerContainer{
+    text-align: center;
+}
+.messageContainer{
+    margin:auto;
+    text-align: center;
+}
