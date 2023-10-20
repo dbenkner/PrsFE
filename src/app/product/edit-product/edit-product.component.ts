@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from '../product.service';
 import { VendorService } from 'src/app/vendor/vendor.service';
 import { SystemService } from 'src/app/core/system.service';
+import { User } from 'src/app/user/user.class';
 
 @Component({
   selector: 'app-edit-product',
@@ -15,6 +16,7 @@ export class EditProductComponent {
   product!: Product;
   vendors: Vendor[] = [];
   message: string = "";
+  loggedInUser:User = new User();
 
   constructor(
     private route: ActivatedRoute,
@@ -25,6 +27,8 @@ export class EditProductComponent {
   ){}
   ngOnInit():void {
     let id = this.route.snapshot.params['id'];
+    this.loggedInUser = this.systemSvc.loggedInUser;
+    if (this.loggedInUser.isAdmin === false) this.router.navigate(['/denied']);
     this.vendorSvc.list().subscribe({
       next:(res) => {
         this.vendors = res;

@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Product } from '../product.class';
 import { ProductService } from '../product.service';
+import { User } from 'src/app/user/user.class';
+import { SystemService } from 'src/app/core/system.service';
 
 @Component({
   selector: 'app-list-products',
@@ -13,13 +15,16 @@ export class ListProductsComponent {
   sortCol: string = "id";
   sortAsc: boolean = true;
   searchInput: string = "";
+  loggedInUser: User = new User();
 
   constructor(
-    private productSvc: ProductService
+    private productSvc: ProductService,
+    private sysService: SystemService
   ) {}
   ngOnInit():void {
     this.sortCol = "id";
     this.sortAsc = true;
+    this.loggedInUser = this.sysService.loggedInUser;
     this.productSvc.list().subscribe({
       next: (res) => {
         this.products = res;

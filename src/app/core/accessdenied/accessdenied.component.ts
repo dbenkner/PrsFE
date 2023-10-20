@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SystemService } from 'src/app/system.service';
 
 @Component({
   selector: 'app-accessdenied',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./accessdenied.component.css']
 })
 export class AccessdeniedComponent {
-
+  constructor (
+    private sysService: SystemService
+  ) {}
 }

@@ -4,7 +4,7 @@
         <H2>Products List</H2>
     </div>
     <div class="listAllContainer">
-        <div class="listTableActions"><a routerLink="/products/new">Add a new product</a> | Search:<input class="search" [(ngModel)]="searchInput"></div>
+        <div class="listTableActions"><span *ngIf="loggedInUser.isAdmin"><a routerLink="/products/new">Add a new product</a> | </span>Search:<input class="search" [(ngModel)]="searchInput"></div>
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -35,7 +35,7 @@
                     <td>{{product.partNbr}}</td>
                     <td>{{product.price |currency}}</td>
                     <td>{{product.vendor.name}}</td>
-                    <td><a routerLink="/products/{{product.id}}">Details</a> | <a routerLink="/products/edit/{{product.id}}">Edit</a></td>
+                    <td><a routerLink="/products/{{product.id}}">Details</a><span *ngIf="loggedInUser.isAdmin"> | <a routerLink="/products/edit/{{product.id}}">Edit</a></span></td>
                 </tr>
             </tbody>
         </table>

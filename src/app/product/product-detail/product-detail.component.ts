@@ -3,6 +3,7 @@ import { Product } from '../product.class';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SystemService } from 'src/app/core/system.service';
 import { ProductService } from '../product.service';
+import { User } from 'src/app/user/user.class';
 
 @Component({
   selector: 'app-product-detail',
@@ -13,6 +14,7 @@ export class ProductDetailComponent {
   product!: Product;
   message: string = "";
   verBtn: boolean = false;
+  loggedInUser: User = new User();
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -23,6 +25,7 @@ export class ProductDetailComponent {
   ngOnInit(): void {
     this.verBtn = false;
     let id = this.route.snapshot.params['id'];
+    this.loggedInUser = this.sysService.loggedInUser;
     this.productSvc.getById(id).subscribe({
       next: (res) => {
         this.product = res;
