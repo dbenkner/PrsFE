@@ -13,6 +13,7 @@ export class ListVendorsComponent {
   message: string = "";
   sortedCol: string = "id";
   sortAsc: boolean = true;
+  searchInput: string = "";
 
   sortCol(input:string) {
     if (input === this.sortedCol) {

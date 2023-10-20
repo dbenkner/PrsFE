@@ -33,11 +33,11 @@
                     <tr *ngFor="let request of requests">
                         <td>{{request.id}}</td>
                         <td>{{request.description}}</td>
-                        <td>{{request.justifcation}}</td>
+                        <td>{{request.justification}}</td>
                         <td>{{request.status}}</td>
-                        <td>{{request.total}}</td>
-                        <td></td>
-                        <td></td>
+                        <td>{{request.total |currency}}</td>
+                        <td>{{request.user.username}}</td>
+                        <td><a routerLink="/review/{{request.id}}">Review Request</a></td>
                     </tr>
                 </tbody>
             </table>

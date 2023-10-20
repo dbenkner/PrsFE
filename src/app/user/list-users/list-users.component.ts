@@ -11,8 +11,9 @@ import { SystemService } from 'src/app/core/system.service';
 export class ListUsersComponent {
   users: User[] = [];
   message: string = "";
-  sortedCol = "id";
-  sortAsc = true;
+  sortedCol:string = "id";
+  sortAsc:boolean = true;
+  substr:string = "";
 
   sortCol(input:string) {
     if (this.sortedCol === input) {

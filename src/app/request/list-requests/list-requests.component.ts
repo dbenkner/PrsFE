@@ -13,7 +13,7 @@ export class ListRequestsComponent {
   message: string = "";
   sortCol: string = "id";
   sortAsc: boolean = true;
-
+  searchInput: string = "";
   constructor(
     private requestSvc:RequestService,
     private systemSvc:SystemService

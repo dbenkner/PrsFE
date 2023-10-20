@@ -2,7 +2,7 @@
 <div class="wrapper">
     <div class="headerContainer"><h2>List All users</h2></div>
     <div class="listAllContainer">
-        <div class="listTableActions"><a routerLink="/users/new">Create new user</a></div>
+        <div class="listTableActions"><a routerLink="/users/new">Create new user</a> | Search:<input class="search" [(ngModel)]="substr"></div>
         <table  class="table table-striped">
             <thead>
                 <tr>
@@ -18,7 +18,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let user of users | sort:sortedCol:sortAsc">
+                <tr *ngFor="let user of users | sort:sortedCol:sortAsc |userSearch:substr">
                     <td>
                         {{user.id}}
                     </td>

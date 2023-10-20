@@ -4,7 +4,7 @@
         <H2>Products List</H2>
     </div>
     <div class="listAllContainer">
-        <div class="listTableActions"><a routerLink="/products/new">Add a new product</a></div>
+        <div class="listTableActions"><a routerLink="/products/new">Add a new product</a> | Search:<input class="search" [(ngModel)]="searchInput"></div>
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -29,7 +29,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let product of products | sort:sortCol:sortAsc">
+                <tr *ngFor="let product of products | sort:sortCol:sortAsc | productSearch:searchInput">
                     <td>{{product.id}}</td>
                     <td>{{product.name}}</td>
                     <td>{{product.partNbr}}</td>

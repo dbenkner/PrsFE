@@ -24,6 +24,7 @@ import { RequestlineComponent } from './request/requestline/requestline.componen
 import { NewRequestlineComponent } from './requestline/new-requestline/new-requestline.component';
 import { EditRequestlineComponent } from './requestline/edit-requestline/edit-requestline.component';
 import { ListReviewComponent } from './request/list-review/list-review.component';
+import { ReviewRequestComponent } from './request/review-request/review-request.component';
 
 const routes: Routes = [
   {path: '', redirectTo:'/login', pathMatch:'full'},
@@ -50,6 +51,7 @@ const routes: Routes = [
   {path: 'requestline/new/:rid', component:NewRequestlineComponent},
   {path: 'requestline/edit/:id', component:EditRequestlineComponent},
   {path: 'review/list', component:ListReviewComponent},
+  {path: 'review/:id', component:ReviewRequestComponent},
   {path: '**', component: E404Component} // ALWAYS LAST ROUTE
 ];
 

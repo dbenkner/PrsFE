@@ -5,7 +5,7 @@
     </div>
         <div class="listAllContainer">
             <div class="listTableActions">
-                <a routerLink="/vendors/new">Add new Vendor</a>
+                <a routerLink="/vendors/new">Add new Vendor</a> | Search: <input class="search" [(ngModel)]="searchInput">
             </div>
             <table class="table table-striped">
                 <thead>
@@ -19,7 +19,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let vendor of vendors | sort:sortedCol:sortAsc">
+                    <tr *ngFor="let vendor of vendors | sort:sortedCol:sortAsc | vendorSearch:searchInput">
                         <td>{{vendor.id}}</td>
                         <td>{{vendor.code}}</td>
                         <td>{{vendor.name}}</td>

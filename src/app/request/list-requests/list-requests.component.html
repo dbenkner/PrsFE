@@ -2,7 +2,7 @@
 <div class="wrapper">
     <div class="headerContainer"><h2>Requests List</h2></div>
     <div class="listAllContainer">
-        <div class="listTableActions"><a routerLink="/requests/new">Create a new request</a></div>
+        <div class="listTableActions"><a routerLink="/requests/new">Create a new request</a> | Search:<input class="search" [(ngModel)]="searchInput"></div>
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -20,7 +20,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let request of requests | sort:sortCol:sortAsc">
+                <tr *ngFor="let request of requests | sort:sortCol:sortAsc | requestSearch:searchInput">
                     <td>{{request.id}}</td>
                     <td>{{request.description}}</td>
                     <td>{{request.rejectionReason}}</td>

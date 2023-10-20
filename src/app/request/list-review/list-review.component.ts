@@ -11,7 +11,7 @@ import { Req } from '../request.class';
   styleUrls: ['./list-review.component.css']
 })
 export class ListReviewComponent {
-  user!: User;
+  loggedInUser!: User;
   requests: Req[] =[];
   message: string = "";
   sortCol:string = "id";
@@ -24,9 +24,9 @@ export class ListReviewComponent {
   ){}
 
   ngOnInit():void{
-    this.user = this.systemSvc.loggedInUser;
-    if(!this.user) this.router.navigate([`/login`]);
-    this.requestSvc.checkReviews(this.user.id).subscribe({
+    this.loggedInUser = this.systemSvc.loggedInUser;
+    if(!this.loggedInUser) this.router.navigate([`/login`]);
+    this.requestSvc.checkReviews(this.loggedInUser.id).subscribe({
       next:(res)=> {
         this.requests = res;
         console.log(this.requests);

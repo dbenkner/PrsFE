@@ -12,6 +12,7 @@ export class ListProductsComponent {
   message: string = "";
   sortCol: string = "id";
   sortAsc: boolean = true;
+  searchInput: string = "";
 
   constructor(
     private productSvc: ProductService
