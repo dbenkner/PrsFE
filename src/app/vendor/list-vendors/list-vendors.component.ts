@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Vendor } from '../vendor.class';
 import { VendorService } from '../vendor.service';
 import { SystemService } from 'src/app/core/system.service';
+import { User } from 'src/app/user/user.class';
 
 @Component({
   selector: 'app-list-vendors',
@@ -14,6 +15,7 @@ export class ListVendorsComponent {
   sortedCol: string = "id";
   sortAsc: boolean = true;
   searchInput: string = "";
+  loggedInUser!: User;
 
   sortCol(input:string) {
     if (input === this.sortedCol) {
@@ -29,6 +31,7 @@ export class ListVendorsComponent {
   ) {}
   ngOnInit():void {
     this.message = "";
+    this.loggedInUser = this.systemSvc.loggedInUser;
     this.vendorSvc.list().subscribe({
       next: (res) => {
         this.vendors = res;

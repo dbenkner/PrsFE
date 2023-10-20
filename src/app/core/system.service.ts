@@ -5,7 +5,7 @@ import { User } from '../user/user.class';
   providedIn: 'root'
 })
 export class SystemService {
-  loggedInUser!: User;
+  loggedInUser = new User;
   constructor() { }
 
   setLoggedInUser(user:User) {

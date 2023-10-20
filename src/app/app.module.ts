@@ -36,6 +36,7 @@ import { UserSearchPipe } from './user/user-search.pipe';
 import { VendorSearchPipe } from './vendor/vendor-search.pipe';
 import { ProductSearchPipe } from './product/product-search.pipe';
 import { RequestSearchPipe } from './request/request-search.pipe';
+import { AccessdeniedComponent } from './core/accessdenied/accessdenied.component';
 
 
 @NgModule({
@@ -72,6 +73,7 @@ import { RequestSearchPipe } from './request/request-search.pipe';
     VendorSearchPipe,
     ProductSearchPipe,
     RequestSearchPipe,
+    AccessdeniedComponent,
   ],
   imports: [
     BrowserModule,

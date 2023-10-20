@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { User } from '../user.class';
 import { UserService } from '../user.service';
-import { SystemService } from 'src/app/core/system.service';
+
 import { ActivatedRoute, Router } from '@angular/router';
+import { SystemService } from 'src/app/core/system.service';
 
 @Component({
   selector: 'app-user-details',
@@ -13,7 +14,7 @@ export class UserDetailsComponent {
   user!: User;
   message: string ="";
   verBtn = false;
-
+  loggedInUser!: User;
   constructor(
     private userSvc: UserService,
     private sysService:SystemService,
@@ -22,6 +23,7 @@ export class UserDetailsComponent {
   ){}
   ngOnInit() {
     let id = this.route.snapshot.params['id'];
+    this.loggedInUser = this.sysService.loggedInUser;
     this.userSvc.getById(id).subscribe({
       next: (res) => {
         console.debug(res);

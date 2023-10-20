@@ -5,7 +5,7 @@
     </div>
         <div class="listAllContainer">
             <div class="listTableActions">
-                <a routerLink="/vendors/new">Add new Vendor</a> | Search: <input class="search" [(ngModel)]="searchInput">
+                <span *ngIf="loggedInUser.isAdmin"><a routerLink="/vendors/new">Add new Vendor</a> | </span>Search: <input class="search" [(ngModel)]="searchInput">
             </div>
             <table class="table table-striped">
                 <thead>
@@ -25,7 +25,7 @@
                         <td>{{vendor.name}}</td>
                         <td>{{vendor.phone}}</td>
                         <td>{{vendor.email}}</td>
-                        <td><a routerLink="/vendors/{{vendor.id}}">Details</a> | <a routerLink="/vendors/edit/{{vendor.id}}">Edit</a></td>
+                        <td><a routerLink="/vendors/{{vendor.id}}">Details</a><span *ngIf="loggedInUser.isAdmin"> | <a routerLink="/vendors/edit/{{vendor.id}}">Edit</a></span></td>
                     </tr>
                 </tbody>
             </table>

@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 export class NewUserComponent {
   user: User = new User();
   message:string = "";
+  loggedInUser!: User;
 
   constructor (
     private userSvc: UserService,
@@ -19,7 +20,10 @@ export class NewUserComponent {
     private router: Router
   ) {}
   ngOnInit(){
-
+    this.loggedInUser = this.sysSvc.loggedInUser;
+    if (this.loggedInUser.isAdmin === false) {
+      this.router.navigate(['/denied']);
+    }
   }
 
   saveUser(){

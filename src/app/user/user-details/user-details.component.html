@@ -41,7 +41,7 @@
                 </tbody>
             </table>
         </div>
-        <div class="saveBtnContainer"><button class="btn btn-primary" (click)="verifyBtn()">Delete User</button>
+        <div *ngIf="loggedInUser.isAdmin" class="saveBtnContainer"><button class="btn btn-primary" (click)="verifyBtn()">Delete User</button>
             <span class="verifyBtn" *ngIf="verBtn" > | <button class="btn btn-warning" (click)="deleteUser()">Confirm</button></span></div>
     </div>
 </div>

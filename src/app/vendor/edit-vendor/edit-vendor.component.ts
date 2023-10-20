@@ -3,6 +3,7 @@ import { Vendor } from '../vendor.class';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SystemService } from 'src/app/core/system.service';
 import { VendorService } from '../vendor.service';
+import { User } from 'src/app/user/user.class';
 
 @Component({
   selector: 'app-edit-vendor',
@@ -12,7 +13,7 @@ import { VendorService } from '../vendor.service';
 export class EditVendorComponent {
   vendor!: Vendor;
   message: string = "";
-
+  loggedInUser!: User;
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -24,6 +25,8 @@ export class EditVendorComponent {
     let id = this.route.snapshot.params['id'];
     console.log("test");
     this.message ="";
+    this.loggedInUser = this.systemSvc.loggedInUser;
+    if (this.loggedInUser.isAdmin === false) this.router.navigate(['/denied']);
     this.vendorSvc.getById(id).subscribe({
       next:(res) => {
         this.vendor = res;

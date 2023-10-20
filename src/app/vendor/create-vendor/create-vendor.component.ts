@@ -3,6 +3,7 @@ import { Vendor } from '../vendor.class';
 import { Router } from '@angular/router';
 import { SystemService } from 'src/app/core/system.service';
 import { VendorService } from '../vendor.service';
+import { User } from 'src/app/user/user.class';
 
 @Component({
   selector: 'app-create-vendor',
@@ -12,6 +13,7 @@ import { VendorService } from '../vendor.service';
 export class CreateVendorComponent {
   vendor: Vendor = new Vendor();
   message:string = "";
+  loggedInUser!:User;
 
   constructor(
     private router: Router,
@@ -19,7 +21,10 @@ export class CreateVendorComponent {
     private vendorSvc: VendorService
   ) {}
 
-  ngOnInit(){}
+  ngOnInit(){
+    this.loggedInUser = this.sysSvc.loggedInUser;
+    if (this.loggedInUser.isAdmin === false) this.router.navigate(['/denied']);
+  }
 
   saveVendor(){
     this.message = "";

@@ -2,7 +2,7 @@
 <div class="wrapper">
     <div class="headerContainer"><h2>List All users</h2></div>
     <div class="listAllContainer">
-        <div class="listTableActions"><a routerLink="/users/new">Create new user</a> | Search:<input class="search" [(ngModel)]="substr"></div>
+        <div class="listTableActions"><span *ngIf="loggedInUser.isAdmin"><a *ngIf="loggedInUser.isAdmin" routerLink="/users/new">Create new user</a> | </span><input class="search" [(ngModel)]="substr"></div>
         <table  class="table table-striped">
             <thead>
                 <tr>
@@ -44,7 +44,7 @@
                         {{user.isAdmin? 'YES' : 'NO'}}
                     </td>
                     <td>
-                        <a routerLink="/users/{{user.id}}">Detail</a> | <a routerLink="/users/edit/{{user.id}}">Edit</a>
+                        <a routerLink="/users/{{user.id}}">Detail</a><span *ngIf="loggedInUser.isAdmin"> | <a routerLink="/users/edit/{{user.id}}">Edit</a></span>
                     </td>
                 </tr>
             </tbody>

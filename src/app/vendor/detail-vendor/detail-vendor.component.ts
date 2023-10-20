@@ -3,6 +3,7 @@ import { Vendor } from '../vendor.class';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SystemService } from 'src/app/core/system.service';
 import { VendorService } from '../vendor.service';
+import { User } from 'src/app/user/user.class';
 
 @Component({
   selector: 'app-detail-vendor',
@@ -13,6 +14,7 @@ export class DetailVendorComponent {
   vendor!: Vendor;
   message:string = "";
   verBtn: boolean = false;
+  loggedInUser!: User;
 
   constructor(
     private route: ActivatedRoute,
@@ -22,6 +24,7 @@ export class DetailVendorComponent {
   ){}
   ngOnInit():void{
     this.verBtn = false;
+    this.loggedInUser = this.sysService.loggedInUser;
     let id = this.route.snapshot.params['id'];
     this.vendorService.getById(id).subscribe({
       next: (res) => {
