@@ -22,7 +22,7 @@
                     <td>{{request.status}}</td>
                     <td>{{request.total | currency}}</td>
                     <td>{{request.user.username}}</td>
-                    <td><button (click)="submit()">Submit for review</button></td>
+                    <td><button class="rlBtn" (click)="submit()">Submit for review</button></td>
                 </tr>
             </tbody>
         </table>
@@ -48,7 +48,7 @@
                     <td>{{line.product.price |currency}}</td>
                     <td>{{line.quantity}}</td>
                     <td>{{line.quantity * line.product.price | currency}}</td>
-                    <td><button routerLink="/requestline/edit/{{line.id}}">Edit</button> | <button (click)="verDel()">Delete</button><span *ngIf="verBtn"> | <button (click)="remove(line.id)">Verify</button></span></td>
+                    <td><button class="rlBtn" routerLink="/requestline/edit/{{line.id}}">Edit</button> | <button class="rlBtn" (click)="verDel()">Delete</button><span *ngIf="verBtn"> | <button class="rlBtn" (click)="remove(line.id)">Verify</button></span></td>
                 </tr>
             </tbody>
         </table>

@@ -28,3 +28,6 @@ body {
     background: none;
     font-weight: bold;
 }
+.sortBtn:hover{
+    color:darkgrey;
+}

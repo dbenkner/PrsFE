@@ -49,7 +49,7 @@
             </table>
         </div>
         <div class="saveBtnContainer">
-            <button (click)="verifyBtn()">Delete</button><span *ngIf="verBtn"> | <button (click)="deleteVendor()" >Verify Delete</button> </span>
+            <button class="btn btn-danger" (click)="verifyBtn()">Delete</button><span *ngIf="verBtn"> | Are you sure? <button class="btn btn-warning" (click)="deleteVendor()" >Verify Delete</button> </span>
         </div>
     </div>
     <div class="messageContainer">{{this.message}}</div>
