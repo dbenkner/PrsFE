@@ -3,6 +3,8 @@
 }
 div {
     background-color: darkblue;
+    width: 100%;
+    height:1.5em;
 }
 li {
     display:inline;
@@ -18,6 +20,6 @@ a:hover{
 }
 span{
     color:white;
-    margin-left: 70%;
-    margin-bottom: 0;
+    position:absolute;
+    right: 5px;
 }

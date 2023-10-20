@@ -16,7 +16,8 @@ export class MenuComponent {
     new Menu('VENDORS', '/vendors/list'),
     new Menu('PRODUCTS', '/products/list'),
     new Menu('REQUESTS', '/requests/list'),
-    new Menu('REVIEW', '/review/list')
+    new Menu('REVIEW', '/review/list'),
+    new Menu('LOGIN', '/login')
   ];
   user!: User;
   constructor(

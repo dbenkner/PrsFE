@@ -1,9 +1,15 @@
 <app-menu></app-menu>
 <div class="wrapper">
+    <div class="headerContainer">
+        <h2>PRS LOG IN</h2>
+    </div>
     <div class="loginContainer">
-        <div class="logInLine"><span>Username:</span><input [(ngModel)]="username"></div>
-        <div class="logInLine"><span>Password:</span><input [(ngModel)]="password" type="password"></div>
-        <div class="saveBtnContainer"><button (click)="logOn()">Login</button></div>
+        <div class="logInWrapper">
+            <div class="logInLine"><span class="holder">Username:</span><input [(ngModel)]="username"></div>
+            <div class="logInLine"><span class="holder">Password:</span><input [(ngModel)]="password" type="password">
+            </div>
+            <div class="saveBtnContainer"><button class="btn btn-primary" (click)="logOn()">Login</button></div>
+        </div>
     </div>
     <div class="messageContainer">{{message}}</div>
 </div>

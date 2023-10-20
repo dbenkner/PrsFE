@@ -1,6 +1,6 @@
 <app-menu></app-menu>
 <div class="wrapper">
-    <div class="headerContainer"><h2>Requestline</h2></div>
+    <div class="headerContainer"><h2>Request Review</h2></div>
     <div class="listAllContainer">
         <table class="table">
             <thead>
@@ -25,9 +25,8 @@
             </tbody>
         </table>
     </div>
-    <div class="headerContainer"><h3>Requestline details</h3></div>
+    <div class="headerContainer"><h3>Request Dtails</h3></div>
     <div class="listAllContainer">
-        <div class="listTableActions"><a routerLink="/requestline/new/{{request.id}}">Add a Line Item</a></div>
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -50,5 +49,5 @@
         </table>
     </div>
     <div class="reviewReq"><button class="btn btn-success" (click)="approve()">Approve</button> | <button class="btn btn-danger" (click)="reject()">Reject</button>
-     <span *ngIf="isRejected"> | <input class="reject" [(ngModel)]="request.rejectionReason"> | <button class="btn btn-warning" (click)="confirmReject()"> Confirm</button></span></div>
+     <span *ngIf="isRejected"> | Rejection Reason:  <input class="reject" [(ngModel)]="request.rejectionReason">  <button class="btn btn-warning" (click)="confirmReject()"> Confirm</button> {{message}}</span></div>
 </div>

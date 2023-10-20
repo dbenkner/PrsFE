@@ -1,6 +1,6 @@
 <app-menu></app-menu>
 <div class="wrapper">
-    <div class="pageTitleContainer"><h2>User Details</h2></div>
+    <div class="headerContainer"><h2>User Details</h2></div>
     <div class="newContainer">
         <div class="back"><a routerLink="/users/listusers">Go back to users list</a></div>
         <div class="infoTableContainer">
@@ -42,6 +42,6 @@
             </table>
         </div>
         <div class="saveBtnContainer"><button class="btn btn-primary" (click)="verifyBtn()">Delete User</button>
-            <span class="verifyBtn" ><button *ngIf="verBtn" class="btn btn-primary" (click)="deleteUser()">Verify</button></span></div>
+            <span class="verifyBtn" *ngIf="verBtn" > | <button class="btn btn-warning" (click)="deleteUser()">Confirm</button></span></div>
     </div>
 </div>

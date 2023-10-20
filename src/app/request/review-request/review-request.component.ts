@@ -28,6 +28,7 @@ export class ReviewRequestComponent {
 
   ngOnInit():void {
     this. isRejected = false;
+    this.message = "";
     let id = this.route.snapshot.params['id'];
     this.user = this.systemSvc.loggedInUser;
     this.requestSvc.getById(id).subscribe({
@@ -53,6 +54,7 @@ export class ReviewRequestComponent {
     this.isRejected = true;
   }
   confirmReject(): void {
+    if (!this.request.rejectionReason) this.message = "Rejection Reason MUST BE FILLED IN!"
     this.requestSvc.reject(this.request).subscribe({
       next:(res) => {
         this.router.navigate(['review/list']);

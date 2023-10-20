@@ -1,8 +1,21 @@
 .loginContainer {
     margin:auto;
     border:solid;
-    width:350px;
+    width:310px;
     border-radius: 10px;
+    padding:10px;
 }
-
+.logInLine{
+    margin-bottom: 10px;
+}
+.holder {
+    width: 90px;
+    display:inline-block;
+}
+.logInWrapper{
+    margin:auto;
+}
+button {
+    margin-left: 75%;
+}
 

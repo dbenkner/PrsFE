@@ -26,6 +26,7 @@ export class NewUserComponent {
     this.userSvc.createUser(this.user).subscribe({
       next: (res) => {
         console.debug(res);
+        this.router.navigate(['/users/listusers']);
       },
       error: (err) => {
         this.message = "sorry something went wrong please check entry and try again";
