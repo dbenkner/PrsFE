@@ -34,7 +34,7 @@ export class RequestService {
     return this.http.put(`${this.url}/reject/${request.id}`, request) as Observable<any>;
   }
   approve(request:Req):Observable<any>{
-    return this.http.put(`${this.url}/approve${request.id}`, request) as Observable<any>; 
+    return this.http.put(`${this.url}/approve/${request.id}`, request) as Observable<any>; 
   }
   checkReviews(userId:number):Observable<Req[]>{
     return this.http.get(`${this.url}/reviews/${userId}`) as Observable<Req[]>;
