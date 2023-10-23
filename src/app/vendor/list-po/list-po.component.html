@@ -1,0 +1,43 @@
+<app-menu></app-menu>
+<div class="wrapper">
+    <div class="headerContainer">
+        <h2>Purchase Order for {{po.vendor?.name}}</h2>
+    </div>
+    <div class="listAllContainer">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                <th>Vendor</th>
+                <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                <td>{{po.vendor?.name}}</td>
+                <td>{{po.poTotal | currency}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="headerContainer">
+        <h2>Line Items</h2>
+    </div>
+    <div class="listAllContainer">
+        <table class="table table-striped">
+            <thead>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>LineTotal</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let line of po.polines">
+                    <td>{{line.product}}</td>
+                    <td>{{line.price | currency}}</td>
+                    <td>{{line.quantity}}</td>
+                    <td>{{line.lineTotal | currency}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

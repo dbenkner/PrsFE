@@ -25,7 +25,8 @@
                         <td>{{vendor.name}}</td>
                         <td>{{vendor.phone}}</td>
                         <td>{{vendor.email}}</td>
-                        <td><a routerLink="/vendors/{{vendor.id}}">Details</a><span *ngIf="loggedInUser.isAdmin"> | <a routerLink="/vendors/edit/{{vendor.id}}">Edit</a></span></td>
+                        <td><a routerLink="/vendors/{{vendor.id}}">Details</a><span *ngIf="loggedInUser.isAdmin"> | <a routerLink="/vendors/edit/{{vendor.id}}">Edit</a></span> | 
+                        <a routerLink="/vendors/po/{{vendor.id}}">Po</a></td>
                     </tr>
                 </tbody>
             </table>

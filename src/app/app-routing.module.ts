@@ -26,6 +26,7 @@ import { EditRequestlineComponent } from './requestline/edit-requestline/edit-re
 import { ListReviewComponent } from './request/list-review/list-review.component';
 import { ReviewRequestComponent } from './request/review-request/review-request.component';
 import { AccessdeniedComponent } from './core/accessdenied/accessdenied.component';
+import { ListPoComponent } from './vendor/list-po/list-po.component';
 
 const routes: Routes = [
   {path: '', redirectTo:'/login', pathMatch:'full'},
@@ -39,6 +40,7 @@ const routes: Routes = [
   {path: 'vendors/list', component:ListVendorsComponent},
   {path: 'vendors/new', component:CreateVendorComponent},
   {path: 'vendors/:id', component:DetailVendorComponent},
+  {path: 'vendors/po/:id', component:ListPoComponent},
   {path: 'vendors/edit/:id', component:EditVendorComponent},
   {path: 'products/list', component:ListProductsComponent},
   {path: 'products/new', component:NewProductComponent},
