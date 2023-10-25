@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { RequestService } from '../request.service';
 import { SystemService } from 'src/app/core/system.service';
 import { Req } from '../request.class';
+import { User } from 'src/app/user/user.class';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-requests',
@@ -14,11 +16,20 @@ export class ListRequestsComponent {
   sortCol: string = "id";
   sortAsc: boolean = true;
   searchInput: string = "";
+  loggedInUser!:User;
+
   constructor(
     private requestSvc:RequestService,
-    private systemSvc:SystemService
+    private systemSvc:SystemService,
+    private router: Router
   ){}
   ngOnInit():void {
+    this.loggedInUser = this.systemSvc.loggedInUser;
+    console.log(this.loggedInUser);
+    if (this.loggedInUser.id === 0) {
+      console.log(this.loggedInUser);
+      this.router.navigate(['/login']);
+    }
     this.sortCol = "id";
     this.sortAsc = true;
     this.requestSvc.list().subscribe({

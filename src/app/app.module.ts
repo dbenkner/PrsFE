@@ -38,6 +38,7 @@ import { ProductSearchPipe } from './product/product-search.pipe';
 import { RequestSearchPipe } from './request/request-search.pipe';
 import { AccessdeniedComponent } from './core/accessdenied/accessdenied.component';
 import { ListPoComponent } from './vendor/list-po/list-po.component';
+import { TestComponent } from './test/test.component';
 
 
 @NgModule({
@@ -76,6 +77,7 @@ import { ListPoComponent } from './vendor/list-po/list-po.component';
     RequestSearchPipe,
     AccessdeniedComponent,
     ListPoComponent,
+    TestComponent,
   ],
   imports: [
     BrowserModule,

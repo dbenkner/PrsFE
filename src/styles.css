@@ -31,3 +31,13 @@ body {
 .sortBtn:hover{
     color:darkgrey;
 }
+a.action {
+    text-decoration: none;
+    color: blue;
+}
+a.action:hover{
+    font-weight: bolder;
+}
+.search {
+    border-radius: 10px;
+}
