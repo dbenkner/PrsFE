@@ -2,14 +2,16 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Product } from './product.class';
 import { Observable } from 'rxjs';
+import { SystemService } from '../core/system.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
-  url = "http://localhost:5555/api/products"
+  get url() {return `${this.sys.config.baseurl}/api/products`; }
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private sys: SystemService
   ) { }
 
   list(): Observable<Product[]> {

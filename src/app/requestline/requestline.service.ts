@@ -2,14 +2,16 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Requestline } from './requestline.class';
 import { Observable } from 'rxjs/internal/Observable';
+import { SystemService } from '../core/system.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RequestlineService {
-  url:string = "http://localhost:5555/api/requestlines"
+  get url() {return `${this.sys.config.baseurl}/api/requestlines`; }
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private sys: SystemService
   ) { }
 
   create(requestline:Requestline): Observable<Requestline>{

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -39,7 +39,12 @@ import { RequestSearchPipe } from './request/request-search.pipe';
 import { AccessdeniedComponent } from './core/accessdenied/accessdenied.component';
 import { ListPoComponent } from './vendor/list-po/list-po.component';
 import { TestComponent } from './test/test.component';
+import { AppInitService } from './app-init.service';
 
+const startupServiceFactory = (appinit: AppInitService) => {
+  console.debug("startupServiceFactory()");
+  return () => appinit.getSettings();
+}
 
 @NgModule({
   declarations: [
@@ -85,7 +90,14 @@ import { TestComponent } from './test/test.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    AppInitService, {
+      provide: APP_INITIALIZER,
+      useFactory: startupServiceFactory,
+      deps: [AppInitService],
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
