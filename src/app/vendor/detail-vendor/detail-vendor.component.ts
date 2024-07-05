@@ -14,7 +14,7 @@ export class DetailVendorComponent {
   vendor!: Vendor;
   message:string = "";
   verBtn: boolean = false;
-  loggedInUser!: User;
+  loggedInUser?: User;
 
   constructor(
     private route: ActivatedRoute,
@@ -33,6 +33,10 @@ export class DetailVendorComponent {
       error: (err) => {
         this.message = "Sorry something went wrong";
         console.error(err);
+        if(err.status === 401) {
+          console.log("test");
+          this.router.navigate(['/denied']);
+        }
       }
     });
   }

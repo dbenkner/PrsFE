@@ -12,7 +12,7 @@ import { Req } from '../request.class';
 })
 export class NewRequestComponent {
   request: Req = new Req();
-  user!: User;
+  user?: User;
   message: string = "";
   constructor(
     private router: Router,

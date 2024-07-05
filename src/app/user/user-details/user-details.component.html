@@ -31,17 +31,13 @@
                         <td>{{user.username}}</td>
                     </tr>
                     <tr>
-                        <td>Reviewer?</td>
-                        <td>{{user.isReviewer? 'YES': 'NO'}}</td>
-                    </tr>
-                    <tr>
-                        <td>Admin?</td>
-                        <td>{{user.isAdmin? 'YES' : 'NO'}}</td>
+                        <td>Roles</td>
+                        <td><span *ngFor="let ur of user.userRoles">{{ur.role?.rolename}} </span></td>
                     </tr>
                 </tbody>
             </table>
         </div>
-        <div *ngIf="loggedInUser.isAdmin" class="saveBtnContainer"><button class="btn btn-primary" (click)="verifyBtn()">Delete User</button>
-            <span class="verifyBtn" *ngIf="verBtn" > | <button class="btn btn-warning" (click)="deleteUser()">Confirm</button></span></div>
+        <ng-container *nfFor="let ur in loggedInUser.userRoles!"><div *ngIf="ur.role?.rolename === 'admin'" class="saveBtnContainer"><button class="btn btn-primary" (click)="verifyBtn()">Delete User</button>
+            <span class="verifyBtn" *ngIf="verBtn" > | <button class="btn btn-warning" (click)="deleteUser()">Confirm</button></span></div></ng-container>
     </div>
 </div>

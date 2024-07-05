@@ -13,7 +13,7 @@ import { User } from 'src/app/user/user.class';
 export class EditVendorComponent {
   vendor!: Vendor;
   message: string = "";
-  loggedInUser!: User;
+  loggedInUser?: User;
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -26,13 +26,22 @@ export class EditVendorComponent {
     console.log("test");
     this.message ="";
     this.loggedInUser = this.systemSvc.loggedInUser;
-    if (this.loggedInUser.isAdmin === false) this.router.navigate(['/denied']);
+    let isAdmin:boolean = false;
+    for(let ur of this.loggedInUser!.userRoles!){
+      if(ur.role?.rolename === "admin") {
+        isAdmin =true;
+      }
+    }
     this.vendorSvc.getById(id).subscribe({
       next:(res) => {
         this.vendor = res;
       },
       error:(err) => {
         this.message = "Sorry something went wrong";
+        if(err.status === 401) {
+          console.log("test");
+          this.router.navigate(['/denied']);
+        }
       }
     });
   }

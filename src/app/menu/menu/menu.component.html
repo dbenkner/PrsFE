@@ -1,4 +1,4 @@
-<div><nav class="nav"><ul><li *ngFor="let menu of menus"><a routerLink="{{menu.route}}">{{menu.display}}</a></li><li *ngIf="user.isReviewer"><a routerLink="/review/list">REVIEWS</a></li>
+<div><nav class="nav"><ul><li *ngFor="let menu of menus"><a routerLink="{{menu.route}}">{{menu.display}}</a></li><ng-container *ngFor="let ur of user?.userRoles"><li *ngIf="ur.role?.rolename?.match('reviewer')"><a routerLink="/review/list">REVIEWS</a></li></ng-container>
 <li><a routerLink="/login">LOGIN</a></li></ul></nav>
     
     <span *ngIf="user">{{user.username}}</span></div>

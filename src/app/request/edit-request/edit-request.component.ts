@@ -12,7 +12,7 @@ import { RequestService } from '../request.service';
 })
 export class EditRequestComponent {
   request!: Req;
-  user!: User;
+  user?: User;
   message:string = "";
   constructor(
     private route: ActivatedRoute,

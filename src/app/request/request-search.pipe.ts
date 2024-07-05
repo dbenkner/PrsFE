@@ -1,5 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { Req } from './request.class';
+import { Role } from '../user/role.class';
 
 @Pipe({
   name: 'requestSearch'

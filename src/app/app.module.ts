@@ -40,6 +40,9 @@ import { AccessdeniedComponent } from './core/accessdenied/accessdenied.componen
 import { ListPoComponent } from './vendor/list-po/list-po.component';
 import { TestComponent } from './test/test.component';
 import { AppInitService } from './app-init.service';
+import { httpInterceptorProviders } from './core/http.interceptor';
+
+
 
 const startupServiceFactory = (appinit: AppInitService) => {
   console.debug("startupServiceFactory()");
@@ -96,7 +99,8 @@ const startupServiceFactory = (appinit: AppInitService) => {
       useFactory: startupServiceFactory,
       deps: [AppInitService],
       multi: true
-    }
+    },
+    httpInterceptorProviders
   ],
   bootstrap: [AppComponent]
 })

@@ -16,7 +16,7 @@ export class ListRequestsComponent {
   sortCol: string = "id";
   sortAsc: boolean = true;
   searchInput: string = "";
-  loggedInUser!:User;
+  loggedInUser?:User;
 
   constructor(
     private requestSvc:RequestService,
@@ -26,7 +26,7 @@ export class ListRequestsComponent {
   ngOnInit():void {
     this.loggedInUser = this.systemSvc.loggedInUser;
     console.log(this.loggedInUser);
-    if (this.loggedInUser.id === 0) {
+    if (this.loggedInUser === null ) {
       console.log(this.loggedInUser);
       this.router.navigate(['/login']);
     }

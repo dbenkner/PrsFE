@@ -14,7 +14,7 @@ import { SystemService } from 'src/app/core/system.service';
 export class ReviewRequestComponent {
   request!: Req;
   message: string = "";
-  user!: User;
+  user?: User;
   isRejected:boolean = false;
   rejectionReason?:string;
 

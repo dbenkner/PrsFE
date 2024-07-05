@@ -12,7 +12,7 @@ import { VendorService } from '../vendor.service';
 })
 export class ListPoComponent {
   po!: Po;
-  loggedInUser:User = this.sysService.loggedInUser;
+  loggedInUser?:User;
   constructor(
     private route:ActivatedRoute,
     private router: Router,
@@ -29,6 +29,10 @@ export class ListPoComponent {
       },
       error:(err) => {
         console.error(err);
+        if(err.status === 401) {
+          console.log("test");
+          this.router.navigate(['/denied']);
+        }
       }
     });
   }

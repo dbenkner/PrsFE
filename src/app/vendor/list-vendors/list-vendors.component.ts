@@ -3,6 +3,7 @@ import { Vendor } from '../vendor.class';
 import { VendorService } from '../vendor.service';
 import { SystemService } from 'src/app/core/system.service';
 import { User } from 'src/app/user/user.class';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-vendors',
@@ -15,7 +16,7 @@ export class ListVendorsComponent {
   sortedCol: string = "id";
   sortAsc: boolean = true;
   searchInput: string = "";
-  loggedInUser!: User;
+  loggedInUser?: User;
 
   sortCol(input:string) {
     if (input === this.sortedCol) {
@@ -27,7 +28,8 @@ export class ListVendorsComponent {
   }
   constructor(
     private vendorSvc: VendorService,
-    private systemSvc: SystemService
+    private systemSvc: SystemService,
+    private router: Router
   ) {}
   ngOnInit():void {
     this.message = "";
@@ -38,6 +40,10 @@ export class ListVendorsComponent {
       },
       error: (err) => {
         this.message = "Sorry something went wrong";
+        if(err.status === 401) {
+          console.log("test");
+          this.router.navigate(['/denied']);
+        }
       }
     });
   }

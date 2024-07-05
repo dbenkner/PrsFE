@@ -15,7 +15,7 @@ export class ListProductsComponent {
   sortCol: string = "id";
   sortAsc: boolean = true;
   searchInput: string = "";
-  loggedInUser: User = new User();
+  loggedInUser?: User = new User();
 
   constructor(
     private productSvc: ProductService,

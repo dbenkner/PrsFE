@@ -16,7 +16,7 @@ export class NewProductComponent {
   product: Product = new Product();
   message: string = "";
   vendors: Vendor[] =[];
-  loggedInUser: User = new User();
+  loggedInUser?: User = new User();
 
   constructor(
     private route: ActivatedRoute,
@@ -29,7 +29,13 @@ export class NewProductComponent {
   ngOnInit(): void {
     this.message = "";
     this.loggedInUser = this.sysService.loggedInUser;
-    if (this.loggedInUser.isAdmin === false) this.router.navigate(['/denied']);
+    let isAdmin = false;
+    for(let ur of this.loggedInUser?.userRoles!){
+      if(ur.role?.rolename === "admin") {
+        isAdmin = true;
+      }
+    }
+    if (isAdmin === false) this.router.navigate(['/denied']);
     this.vendorSvc.list().subscribe({
       next: (res) => {
         this.vendors = res;

@@ -14,7 +14,7 @@ export class ProductDetailComponent {
   product!: Product;
   message: string = "";
   verBtn: boolean = false;
-  loggedInUser: User = new User();
+  loggedInUser?: User = new User();
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -25,6 +25,9 @@ export class ProductDetailComponent {
   ngOnInit(): void {
     this.verBtn = false;
     let id = this.route.snapshot.params['id'];
+    if(this.loggedInUser === null) {
+      this.router.navigate(['/denied']);
+    }
     this.loggedInUser = this.sysService.loggedInUser;
     this.productSvc.getById(id).subscribe({
       next: (res) => {

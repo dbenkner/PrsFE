@@ -7,7 +7,7 @@ import { AppInitService } from '../app-init.service';
 })
 export class SystemService {
   get config() {return this.init.config}
-  loggedInUser = new User;
+  loggedInUser? = new User();
   constructor(
     private init: AppInitService
   ) { }

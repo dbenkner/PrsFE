@@ -5,8 +5,8 @@
     </div>
     <div class="loginContainer">
         <div class="logInWrapper">
-            <div class="logInLine"><span class="holder">Username:</span><input [(ngModel)]="username"></div>
-            <div class="logInLine"><span class="holder">Password:</span><input [(ngModel)]="password" type="password">
+            <div class="logInLine"><span class="holder">Username:</span><input [(ngModel)]="loginDTO.username"></div>
+            <div class="logInLine"><span class="holder">Password:</span><input [(ngModel)]="loginDTO.password" type="password">
             </div>
             <div class="saveBtnContainer"><button class="btn btn-primary" (click)="logOn()">Login</button></div>
         </div>

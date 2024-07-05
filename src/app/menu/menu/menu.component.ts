@@ -19,7 +19,7 @@ export class MenuComponent {
     //new Menu('REVIEW', '/review/list'),
     //new Menu('LOGIN', '/login')
   ];
-  user!: User;
+  user?: User;
   constructor(
     private sysService: SystemService
   ) {}

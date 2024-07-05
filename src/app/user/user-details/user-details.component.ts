@@ -14,7 +14,7 @@ export class UserDetailsComponent {
   user!: User;
   message: string ="";
   verBtn = false;
-  loggedInUser!: User;
+  loggedInUser?: User;
   constructor(
     private userSvc: UserService,
     private sysService:SystemService,
@@ -31,7 +31,12 @@ export class UserDetailsComponent {
       },
       error: (err) => {
         console.error(err);
+        if(err.status === 401) {
+          console.log("test");
+          this.router.navigate(['/denied']);
+        }
         this.message= "Sorry something went wrong";
+        
       }
     });
   }

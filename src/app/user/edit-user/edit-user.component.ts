@@ -12,7 +12,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class EditUserComponent {
   user!: User;
   message: string = "";
-  loggedInUser!: User;
+  loggedInUser?: User;
   constructor(
     private userSvc: UserService,
     private sysSvc: SystemService,
@@ -25,7 +25,13 @@ export class EditUserComponent {
     let id:number = this.route.snapshot.params['id'];
     this.loggedInUser = this.sysSvc.loggedInUser;
     console.debug(this.loggedInUser);
-    if (this.loggedInUser.isAdmin === false) {
+    let isAdmin = false;
+    for(let ur of this.loggedInUser!.userRoles!) {
+      if(ur.role?.rolename === "admin") {
+        isAdmin = true;
+      }
+    }
+    if (isAdmin === false) {
       this.router.navigate(['/denied']);
     }
     this.userSvc.getById(id).subscribe({

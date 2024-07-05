@@ -4,7 +4,7 @@
         <H2>Products List</H2>
     </div>
     <div class="listAllContainer">
-        <div class="listTableActions"><span *ngIf="loggedInUser.isAdmin"><a class=action routerLink="/products/new">Add a new product</a> | </span>Search:<input class="search" [(ngModel)]="searchInput"></div>
+        <div class="listTableActions"><ng-container *ngFor="let ur of loggedInUser?.userRoles"><span *ngIf="ur.role?.rolename === 'admin'"><a class=action routerLink="/products/new">Add a new product</a> | </span></ng-container>Search:<input class="search" [(ngModel)]="searchInput"></div>
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -35,7 +35,7 @@
                     <td>{{product.partNbr}}</td>
                     <td>{{product.price |currency}}</td>
                     <td>{{product.vendor.name}}</td>
-                    <td><a class="action" routerLink="/products/{{product.id}}">Details</a><span *ngIf="loggedInUser.isAdmin"> | <a class="action" routerLink="/products/edit/{{product.id}}">Edit</a></span></td>
+                    <td><a class="action" routerLink="/products/{{product.id}}">Details</a><ng-container *ngFor="let ur of loggedInUser?.userRoles"><span *ngIf="ur.role?.rolename ==='admin'"> | <a class="action" routerLink="/products/edit/{{product.id}}">Edit</a></span></ng-container></td>
                 </tr>
             </tbody>
         </table>

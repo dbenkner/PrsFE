@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 export class NewUserComponent {
   user: User = new User();
   message:string = "";
-  loggedInUser!: User;
+  loggedInUser?: User;
 
   constructor (
     private userSvc: UserService,
@@ -20,8 +20,21 @@ export class NewUserComponent {
     private router: Router
   ) {}
   ngOnInit(){
+    if (this.sysSvc.loggedInUser === null || this.sysSvc.loggedInUser?.id === 0) {
+      this.router.navigate(['/denied']);
+    }
+    console.log("test");
+    console.log(this.sysSvc.loggedInUser);
     this.loggedInUser = this.sysSvc.loggedInUser;
-    if (this.loggedInUser.isAdmin === false) {
+    let isAdmin = false;
+    for(let ur of this.sysSvc.loggedInUser?.userRoles!){
+      if(ur.role?.rolename === "admin") {
+        isAdmin = true;
+        console.log(this.loggedInUser);
+      }
+    }
+    console.log(this.loggedInUser);
+    if (isAdmin === false) {
       this.router.navigate(['/denied']);
     }
   }

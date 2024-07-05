@@ -13,7 +13,7 @@ import { User } from 'src/app/user/user.class';
 export class CreateVendorComponent {
   vendor: Vendor = new Vendor();
   message:string = "";
-  loggedInUser!:User;
+  loggedInUser?:User;
 
   constructor(
     private router: Router,
@@ -23,7 +23,13 @@ export class CreateVendorComponent {
 
   ngOnInit(){
     this.loggedInUser = this.sysSvc.loggedInUser;
-    if (this.loggedInUser.isAdmin === false) this.router.navigate(['/denied']);
+    let isAdmin = false;
+    for(let ur of this.sysSvc.loggedInUser?.userRoles!) {
+      if(ur.role?.rolename === "admin"){
+        isAdmin = true;
+      }
+    }
+    if (isAdmin === false) this.router.navigate(['/denied']);
   }
 
   saveVendor(){
